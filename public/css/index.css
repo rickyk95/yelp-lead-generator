@@ -1,0 +1,26 @@
+* {
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+html {
+  height: 100%;
+}
+body {
+  background-image: url('/img/background.jpg');
+  background-size: cover;
+  height: 100%;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: black;
+  opacity: 0.75;
+}
+
+.container {
+  position: relative !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+}

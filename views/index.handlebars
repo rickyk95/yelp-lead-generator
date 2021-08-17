@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    
+    <title>Yelp Lead Generator</title>
+</head>
+<body>
+
+
+    <div class="overlay">
+        <div class="container text-center"> 
+            <h1 class="text-center display-2 text-white">Yelp Lead Generator</h1>
+                <form action="/results" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="location" class="form-control my-3" placeholder="New York City, San Francisco, etc.">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="businessType" class="form-control my-3" placeholder="Restaurant, Coffee Shop, etc.">
+                    </div>
+                    <button class="btn btn-primary mt-5 px-3">Submit</button>
+                </form>
+            </div>
+    </div>
+    
+</body>
+</html>
