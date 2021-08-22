@@ -2,10 +2,10 @@
   "name": "yelp-leads",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev":"env-cmd -f./config/dev.env nodemon app.js"
+    "dev":"env-cmd -f./config/dev.env nodemon ./src/app.js --ext js"
   },
   "author": "",
   "license": "ISC",

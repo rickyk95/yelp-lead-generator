@@ -7,7 +7,6 @@ const path = require('path')
 const fs = require('fs')
 const scrape = require('./public/js/scrape.js')
 const { insertLeads } = require('./public/js/google.js')
-const getBusinessInfo = require('./public/js/getInfoHelper.js')
 app.use(express.static(path.join(__dirname,'public')))
 app.use(bodyParser.urlencoded({extended:true}))
 app.set('view engine','handlebars')
@@ -20,12 +19,15 @@ app.get('/',(req,res)=>{
     res.render('index',{layout:false})
 })
 
-
 app.post('/results', async (req,res)=>{
     let leads = await scrape(req.body.businessType,req.body.location)
     insertLeads(leads)
     res.send("Leads Stored")
 })
+
+
+
+
 
 
 
