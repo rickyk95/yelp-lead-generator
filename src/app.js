@@ -19,6 +19,12 @@ app.get('/',(req,res)=>{
     res.render('index',{layout:false})
 })
 
+console.log(process.env.PRIVATEKEY)
+
+console.log(process.env.PRIVATEKEYID)
+console.log(process.env.SPREADSHEETID)
+console.log(process.env.CLIENTID)
+
 app.post('/results', async (req,res)=>{
     res.send("Leads Stored")
     let leads = await scrape(req.body.businessType,req.body.location)
