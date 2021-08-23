@@ -10,7 +10,7 @@ async function scrape(businessType,businessLocation){
     var reviews = [];
     var websites =[];
     var companyNames = [];
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'],headless:true, defaultViewport: {
+    const browser = await puppeteer.launch({ args: ['--no-sandbox','--disable-setuid-sandbox'],headless:false, defaultViewport: {
         width:1920,
         height:1080
       }})
@@ -30,7 +30,7 @@ async function scrape(businessType,businessLocation){
     })
 
     
-    for (let i = 4; i < 6;i++){
+    for (let i = 4; i < 10;i++){
       try{
           await getInfo(page,i,reviews,websites,companyNames,companies)
       }catch(e){    
