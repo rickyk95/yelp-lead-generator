@@ -20,9 +20,10 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/results', async (req,res)=>{
+    res.send("Leads Stored")
     let leads = await scrape(req.body.businessType,req.body.location)
     insertLeads(leads)
-    res.send("Leads Stored")
+  
 })
 
 
