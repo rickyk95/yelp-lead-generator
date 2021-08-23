@@ -17,7 +17,7 @@ async function getInfoHelper(page,reviews,websites){
       }
       reviews.push(numberOfReviews)
       let website = await page.$eval('p.css-1h1j0y3 a.css-ac8spe',website => {
-        // if(website.innerText.length === 0)  return 'No website'                                                           
+        if(website.innerText.length === 0)  return 'No website'                                                           
             return website.innerText
       })
       websites.push(website)

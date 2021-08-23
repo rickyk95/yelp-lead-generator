@@ -4,13 +4,14 @@ const getInfo = require('./getInfo.js')
 const parseUrl = require('./parseUrl.js')
 puppeteer.use(stealthPlugin())
 
-var reviews = [];
-var websites =[];
-var companyNames = [];
+
 
 async function scrape(businessType,businessLocation){
+    var reviews = [];
+    var websites =[];
+    var companyNames = [];
 
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'],headless:true, defaultViewport: {
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'],headless:false, defaultViewport: {
         width:1920,
         height:1080
       }})
@@ -24,11 +25,13 @@ async function scrape(businessType,businessLocation){
 
         const companies = await page.$$eval('[class="css-166la90"]',(companies) => {
           return companies.map((company)=>{
+              console.log(company)
               return {companyName:company.innerText,link:company.href}
           })
     })
+
     
-    for (let i = 0; i < companies.length;i++){
+    for (let i = 4; i < 6;i++){
       try{
           await getInfo(page,i,reviews,websites,companyNames,companies)
       }catch(e){    
@@ -36,7 +39,6 @@ async function scrape(businessType,businessLocation){
       }
    }
 
-   browser.close()
 
     console.log(reviews,websites,companyNames)
     return {reviews,websites,companyNames}

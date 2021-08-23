@@ -25,7 +25,7 @@ async function insertLeads(leads){
     console.log(companyNames)
     
     const auth = new google.auth.GoogleAuth({
-        keyFile:'./credentials.json',
+        keyFile:'./credentials2.json',
         scopes:SCOPES
     })
 
@@ -64,8 +64,9 @@ async function insertLeads(leads){
     credentials['client_id'] = ' ';
     fs.writeFileSync('./credentials.json',JSON.stringify(credentials))
 }catch(e){
-        throw Error('ERROR MAN',e)
         console.log(e)
+        throw Error('ERROR MAN',e)
+        
 }
 
 }
