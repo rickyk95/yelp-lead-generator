@@ -25,7 +25,7 @@ async function insertLeads(leads){
     console.log(companyNames)
     
     const auth = new google.auth.GoogleAuth({
-        keyFile:'./credentials2.json',
+        keyFile:'./credentials.json',
         scopes:SCOPES
     })
 
