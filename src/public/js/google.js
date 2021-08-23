@@ -18,9 +18,11 @@ function googleTest(){
 
 async function insertLeads(leads){
     try{
+
     let credentials = googleTest()
     console.log('calling lead function')
     const { reviews, websites, companyNames } = leads 
+    console.log(companyNames)
     
     const auth = new google.auth.GoogleAuth({
         keyFile:'./credentials.json',

@@ -6,7 +6,7 @@ puppeteer.use(stealthPlugin())
 
 var reviews = [];
 var websites =[];
-var numbers = [];
+var companyNames = [];
 
 async function scrape(businessType,businessLocation){
 
@@ -20,20 +20,22 @@ async function scrape(businessType,businessLocation){
     await page.goto(url,{timeout:0})
     await page.waitFor(8000)
     let links = await page.$$('[class="css-166la90"]') 
+    console.log(links.length,'links length1')
+
+        const companies = await page.$$eval('[class="css-166la90"]',(companies) => {
+          return companies.map((company)=>{
+              return {companyName:company.innerText,link:company.href}
+          })
+    })
     
-    for (let i = 0; i < links.length;i++){
+    for (let i = 0; i < companies.length;i++){
       try{
-          await getInfo(page,i,reviews,websites,numbers)
+          await getInfo(page,i,reviews,websites,companyNames,companies)
       }catch(e){    
         console.log(e)
       }
    }
 
-    const companyNames = await page.$$eval('[class="css-166la90"]',(names) => {
-        return names.map((name)=>{
-            return name.innerText
-        })
-    })
     console.log(reviews,websites,companyNames)
     return {reviews,websites,companyNames}
 }
