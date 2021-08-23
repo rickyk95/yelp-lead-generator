@@ -36,6 +36,8 @@ async function scrape(businessType,businessLocation){
       }
    }
 
+   browser.close()
+
     console.log(reviews,websites,companyNames)
     return {reviews,websites,companyNames}
 }
