@@ -29,6 +29,7 @@ async function scrape(businessType,businessLocation){
           })
     })
 
+    console.log(companies)
     
     for (let i = 4; i < 10;i++){
       try{
