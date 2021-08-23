@@ -10,7 +10,7 @@ async function scrape(businessType,businessLocation){
     var reviews = [];
     var websites =[];
     var companyNames = [];
-    const browser = await puppeteer.launch({ args: ['--no-sandbox','--disable-setuid-sandbox'],headless:false, defaultViewport: {
+    const browser = await puppeteer.launch({ args: ['--no-sandbox','--disable-setuid-sandbox'],headless:true, defaultViewport: {
         width:1920,
         height:1080
       }})
