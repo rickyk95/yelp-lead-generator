@@ -6,9 +6,10 @@ async function getInfo(page,i,reviews,websites,companyNames,company){
         companyNames.push(company[i].companyName)
         await page.waitForTimeout(3000)
         await page.goto(company[i].link)
-        await page.waitForTimeout(15000)
-        await page.waitForTimeout(15000)
+        await page.waitForTimeout(10000)
+        await page.waitForTimeout(10000)
         await getInfoHelper(page,reviews,websites)
+        console.log('Calling helper')
         await page.goBack()      
         await page.waitForTimeout(6000)
     }catch(e){

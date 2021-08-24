@@ -7,14 +7,12 @@ const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 function googleTest(){
     let json = fs.readFileSync('./credentials.json');
     json = JSON.parse(json)
-   
-    json['private_key'] = process.env.PRIVATEKEY.replace('/\\n/g','\n')
+    json['private_key'] = process.env.PRIVATEKEY
     json['private_key_id'] = process.env.PRIVATEKEYID
     json['client_id'] = process.env.CLIENTID
     fs.writeFileSync('./credentials.json', JSON.stringify(json))
     return json
 }
-
 
 async function insertLeads(leads){
     try{
@@ -60,12 +58,12 @@ async function insertLeads(leads){
 
     console.log('Written')
     credentials['private_key_id'] = ' ';
-    // credentials['private_key'] = ' ';
+    credentials['private_key'] = ' ';
     credentials['client_id'] = ' ';
     fs.writeFileSync('./credentials.json',JSON.stringify(credentials))
 }catch(e){
         console.log(e)
-        throw Error('ERROR MAN',e)
+        throw Error('An error was found',e)
         
 }
 

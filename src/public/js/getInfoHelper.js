@@ -9,7 +9,7 @@ async function getInfoHelper(page,reviews,websites){
               return review.innerText
           })
 
-          if(!numberOfReviews === 'No Reviews') {
+          if(numberOfReviews === 'No Reviews') {
             console.log(numberOfReviews,'This is #reviews')
             numberOfReviews = await page.$eval('.css-bq71j2',review => {
               if(!review.innerText.includes('reviews'))  return 'No Reviews'                                                         
