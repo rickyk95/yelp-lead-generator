@@ -4,20 +4,18 @@ const fs = require('fs')
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 
-function googleTest(){
-    let json = fs.readFileSync('./credentials.json');
-    json = JSON.parse(json)
-    json['private_key'] = process.env.PRIVATEKEY
-    json['private_key_id'] = process.env.PRIVATEKEYID
-    json['client_id'] = process.env.CLIENTID
-    fs.writeFileSync('./credentials.json', JSON.stringify(json))
-    return json
-}
+// function googleTest(){
+//     let json = fs.readFileSync('./credentials.json');
+//     json = JSON.parse(json)
+//     json['private_key'] = process.env.PRIVATEKEY
+//     json['private_key_id'] = process.env.PRIVATEKEYID
+//     json['client_id'] = process.env.CLIENTID
+//     fs.writeFileSync('./credentials.json', JSON.stringify(json))
+//     return json
+// }
 
 async function insertLeads(leads){
     try{
-
-    let credentials = googleTest()
     console.log('calling lead function')
     const { reviews, websites, companyNames } = leads 
     console.log(companyNames)
@@ -55,12 +53,6 @@ async function insertLeads(leads){
             console.log(err,'this is the error')
     })
 
-
-    console.log('Written')
-    credentials['private_key_id'] = ' ';
-    credentials['private_key'] = ' ';
-    credentials['client_id'] = ' ';
-    fs.writeFileSync('./credentials.json',JSON.stringify(credentials))
 }catch(e){
         console.log(e)
         throw Error('An error was found',e)
