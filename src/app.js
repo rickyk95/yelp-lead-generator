@@ -21,7 +21,7 @@ app.get('/',(req,res)=>{
 
 
 app.post('/results', async (req,res)=>{
-    res.send("Leads Stored")
+    res.render('submission',{layout:false})
     let leads = await scrape(req.body.businessType,req.body.location)
     insertLeads(leads)
   

@@ -31,7 +31,7 @@ async function scrape(businessType,businessLocation){
 
     console.log(companies)
     
-    for (let i = 3; i < 4;i++){
+    for (let i = 3; i < companies.length;i++){
       try{
           await getInfo(page,i,reviews,websites,companyNames,companies)
       }catch(e){    

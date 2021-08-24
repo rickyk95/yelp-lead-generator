@@ -5,7 +5,7 @@ async function getInfoHelper(page,reviews,websites){
 
      try{
           let numberOfReviews = await page.$eval('.css-1h1j0y3',review => {
-            if(!review.innerText.includes('reviews'))  return false                                                         
+            if(!review.innerText.includes('reviews'))  return 'No Reviews'                                                         
               return review.innerText
           })
 
