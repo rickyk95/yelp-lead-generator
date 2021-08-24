@@ -4,8 +4,6 @@ const getInfo = require('./getInfo.js')
 const parseUrl = require('./parseUrl.js')
 puppeteer.use(stealthPlugin())
 
-
-
 async function scrape(businessType,businessLocation){
     var reviews = [];
     var websites =[];
@@ -18,7 +16,7 @@ async function scrape(businessType,businessLocation){
     let url = parseUrl(businessType,businessLocation)
     const page =  await browser.newPage()
     await page.goto(url,{timeout:0})
-    await page.waitFor(8000)
+    await page.waitForTimeout(8000)
     let links = await page.$$('[class="css-166la90"]') 
     console.log(links.length,'links length1')
 
@@ -31,7 +29,7 @@ async function scrape(businessType,businessLocation){
 
     console.log(companies)
     
-    for (let i = 3; i < companies.length;i++){
+    for (let i = 3; i < 4;i++){
       try{
           await getInfo(page,i,reviews,websites,companyNames,companies)
       }catch(e){    
